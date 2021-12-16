@@ -2,7 +2,6 @@ pipeline {
     agent { label 'docker' }
     
     environment {
-        imagename = 'webpytestbdg'
 	Dockerhub = '8421a05e-b878-4533-9fab-9b5356c61c41'
 	registry  = 'grhovo/webpytestbdg'
     }
@@ -29,6 +28,14 @@ pipeline {
                     docker.withRegistry('',  Dockerhub ) {
                     dockerImage.push()
                     }
+                }
+        }
+    }
+        stage('Deploy to Dev environment'){
+            steps {
+                script
+                {
+                    docker.image('registry:$BUILD_NUMBER').withRun('-p 8081:80')
                 }
         }
     }
