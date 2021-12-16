@@ -33,7 +33,7 @@ pipeline {
     }
         stage('Deploy to Dev environment'){
             steps {
-              sh "docker run -p 8081:80 $registry:$BUILD_NUMBER"
+              sh "docker run -p 8081:80 -d $registry:$BUILD_NUMBER"
         }
     }
     }
