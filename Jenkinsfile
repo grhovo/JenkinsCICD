@@ -36,7 +36,7 @@ pipeline {
               sh "docker run -p 8081:80 -d $registry:$BUILD_NUMBER"
         }
     }
-        stage('Deploy to Prod environment'){
+        stage('Go to prod'){
             steps {
               input 'Go to prod'
         }
