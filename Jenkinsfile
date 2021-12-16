@@ -4,6 +4,7 @@ pipeline {
     environment {
         imagename = 'webpytestbdg'
 	Dockerhub = '8421a05e-b878-4533-9fab-9b5356c61c41'
+	registry  = 'grhovo/webpytestbdg'
     }
 
     stages {
