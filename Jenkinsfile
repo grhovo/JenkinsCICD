@@ -36,5 +36,16 @@ pipeline {
               sh "docker run -p 8081:80 -d $registry:$BUILD_NUMBER"
         }
     }
+        stage('Deploy to Prod environment'){
+            steps {
+              input 'Go to prod'
+        }
+    }
+        stage('Deploy to Prod environment'){
+	    agent  { label 'prod' }
+            steps {
+              sh "docker run -p 8081:80 -d $registry:$BUILD_NUMBER"
+        }
+    }
     }
 }
