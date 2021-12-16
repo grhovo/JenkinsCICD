@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout code from git') {
             steps {
                 //git config
-                git 'https://github.com/grhovo/docker-react.git'
+                git 'https://github.com/grhovo/JenkinsCICD.git'
             }
         }
         stage('Build docker image'){
